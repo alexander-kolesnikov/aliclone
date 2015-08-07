@@ -3,7 +3,7 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :title, limit: 30
       t.string :description, limit: 255
-      t.vendor :belongs_to
+      t.belongs_to :vendor
 
       t.timestamps null: false
     end

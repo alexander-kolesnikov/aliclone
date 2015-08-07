@@ -24,6 +24,13 @@ gem 'jbuilder', '~> 2.0'
 #gem to upload files to the app
 gem 'carrierwave', '~> 0.10.0'
 
+#Slim is a template language 
+gem 'slim', '~> 3.0.6'
+
+#Solr-powered search
+gem 'sunspot_rails', group: :development
+gem 'sunspot_solr', group: :development
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

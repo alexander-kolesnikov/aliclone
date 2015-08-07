@@ -1,0 +1,6 @@
+= form_tag(products_path, method: :get)
+  = label_tag(:query, "Enter your search query: ")
+  = text_field_tag :query, params[:query]
+  br
+  = submit_tag("Find")
+/ , placeholder: params[][])
