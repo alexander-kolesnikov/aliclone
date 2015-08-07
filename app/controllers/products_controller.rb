@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
   def index
-  	Product.search  do
-      fulltext  params[:query], fields: :description
-  	  order_by :title, :desc
+  	#render text: "the search query is #{params[:query]}"
+  	#p params[:query]
+  	@products = Product.search  do
+      fulltext  params[:query]
+  	  #order_by :title, :desc
   	  #order_by :description, :desc
-      paginate :page => 1, :per_page => 15
-    end
+      #paginate :page => 2, :per_page => 15
+    end.results
   end
 end
