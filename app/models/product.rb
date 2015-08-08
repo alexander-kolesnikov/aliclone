@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   searchable do
-    string :title
+    text :title
     text :description
   end
 end
