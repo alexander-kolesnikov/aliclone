@@ -9,6 +9,7 @@
   - for @product in @products
     = link_to 'Link', product_path(@product.id)
     p #{@product.title}
+    p "THE CURRENT SEARCH RETURNED THE FOLLOWING RECORDS #{@products}"
 - elsif !params[:query]
     p Please, enter a search query
 - else
