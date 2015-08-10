@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150807085407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "product_pictures", force: :cascade do |t|
+  create_table "pictures", force: :cascade do |t|
     t.string   "title",      limit: 100
     t.string   "file"
     t.integer  "product_id"
@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(version: 20150807085407) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "product_pictures", ["product_id"], name: "index_product_pictures_on_product_id", using: :btree
-  add_index "product_pictures", ["title"], name: "index_product_pictures_on_title", unique: true, using: :btree
+  add_index "pictures", ["product_id"], name: "index_pictures_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "title",       limit: 30
