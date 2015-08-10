@@ -10,6 +10,8 @@
     = link_to 'Link', product_path(@product.id)
     p #{@product.title}
     p "THE CURRENT SEARCH RETURNED THE FOLLOWING RECORDS #{@products}"
+    <img src="#{ProductPicture.where(product_id: nil).first.title.url}" alt="whip"> 
+    p "The current value of image is #{ProductPicture.where(product_id: nil).first.title.url}"
 - elsif !params[:query]
     p Please, enter a search query
 - else

@@ -1,7 +1,8 @@
 class CreateProductPictures < ActiveRecord::Migration
   def change
     create_table :product_pictures do |t|
-      t.string :title, limit: 30
+      t.string :title, limit: 100
+      t.belongs_to :product, index: true
 
       t.timestamps null: false
     end

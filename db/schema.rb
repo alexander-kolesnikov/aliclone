@@ -17,11 +17,13 @@ ActiveRecord::Schema.define(version: 20150807085407) do
   enable_extension "plpgsql"
 
   create_table "product_pictures", force: :cascade do |t|
-    t.string   "title",      limit: 30
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "title",      limit: 100
+    t.integer  "product_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
+  add_index "product_pictures", ["product_id"], name: "index_product_pictures_on_product_id", using: :btree
   add_index "product_pictures", ["title"], name: "index_product_pictures_on_title", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|

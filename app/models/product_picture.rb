@@ -1,5 +1,7 @@
 class ProductPicture < ActiveRecord::Base
-  belongs_to :Product
+  belongs_to :product
+
+  mount_uploader :title, PictureUploader
 
   searchable do
   	text :title
