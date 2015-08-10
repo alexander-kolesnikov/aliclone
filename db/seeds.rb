@@ -7,6 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
  Product.create(title: "test_product", description: "that is great")
- #ProductPicture.create(title: 'ActionController::Base.helpers.asset_path("fallback/" + [version_name, \"default.jpg\"].compact.join(\'_\'))')
- #Vendor.create(title: "test_vendor", vendor_logo: "")
- ProductPicture.create
+ ProductPicture.create(title: "test product image", file: File.open('/home/bestdev/aliclone/app/assets/images/whip.jpg'), product_id: 1)

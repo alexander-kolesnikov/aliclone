@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150807085407) do
 
   create_table "product_pictures", force: :cascade do |t|
     t.string   "title",      limit: 100
+    t.string   "file"
     t.integer  "product_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -38,9 +39,9 @@ ActiveRecord::Schema.define(version: 20150807085407) do
 
   create_table "vendors", force: :cascade do |t|
     t.string   "title"
-    t.string   "vendor_logo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

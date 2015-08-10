@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
   	#render text: "the search query is #{params[:query]}"
   	#p params[:query]
-  	@products = (Sunspot.search [Product, ProductPicture] do
+  	@products = (Sunspot.search Product do
       fulltext  params[:query]
   	  #order_by :title, :desc
   	  #order_by :description, :desc
