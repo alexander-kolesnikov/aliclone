@@ -9,7 +9,7 @@
   - for @product in @products
     = link_to 'Link', product_path(@product.id)
     p #{@product.title}
-    <img src="#{Picture.where(product_id: @product.id).first.file.url}" alt="product_image">
+    <img src="#{@product.pictures.first.file.url}" alt="product_image">
 - elsif !params[:query]
     p Please, enter a search query
 - else

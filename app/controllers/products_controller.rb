@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-  	@products = (Sunspot.search Product do
+  	@products = (Product.search do
       fulltext  params[:query]
   	  #order_by :title, :desc
   	  #order_by :description, :desc

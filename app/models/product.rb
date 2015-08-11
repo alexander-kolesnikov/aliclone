@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
-  has_many :ProductPicture
+  has_many :pictures
+
+  validates :title, presence: true, uniqueness: true
   
   searchable do
     text :title
