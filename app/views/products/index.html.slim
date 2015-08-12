@@ -8,8 +8,9 @@
 - if @products != [] && params[:query]
   - for @product in @products
     = link_to 'Link', product_path(@product.id)
-    p #{@product.title}
-    <img src="#{@product.pictures.first.file.url}" alt="product_image">
+    <p> #{@product.title} </p>
+    = image_tag(@product.pictures.first.file.url)
+    <p> #{@product.description} </p>
 - elsif !params[:query]
     p Please, enter a search query
 - else

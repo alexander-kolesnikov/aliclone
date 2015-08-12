@@ -3,7 +3,5 @@ class Picture < ActiveRecord::Base
 
   mount_uploader :file, PictureUploader
 
-  searchable do
-  	text :title
-  end
+  validates :title, presense: true, uniqueness: true
 end

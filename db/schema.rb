@@ -17,24 +17,27 @@ ActiveRecord::Schema.define(version: 20150807085407) do
   enable_extension "plpgsql"
 
   create_table "pictures", force: :cascade do |t|
-    t.string   "title",      limit: 100
+    t.string   "title"
     t.string   "file"
     t.integer  "product_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "pictures", ["product_id"], name: "index_pictures_on_product_id", using: :btree
+  add_index "pictures", ["title"], name: "index_pictures_on_title", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "title",       limit: 30
-    t.string   "description", limit: 255
     t.integer  "vendor_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "vendors_id",  null: false
   end
 
   add_index "products", ["title"], name: "index_products_on_title", unique: true, using: :btree
+  add_index "products", ["vendors_id"], name: "index_products_on_vendors_id", using: :btree
 
   create_table "vendors", force: :cascade do |t|
     t.string   "title"
