@@ -3,7 +3,8 @@ class Product < ActiveRecord::Base
   belongs_to :vendor
 
   validates :title, presence: true, uniqueness: true
-  validates :description, presense: true
+  validates :description, presence: true
+  validates :vendor, presence: true
   
   searchable do
     text :title
