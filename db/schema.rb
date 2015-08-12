@@ -28,16 +28,15 @@ ActiveRecord::Schema.define(version: 20150807085407) do
   add_index "pictures", ["title"], name: "index_pictures_on_title", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.integer  "vendor_id"
+    t.integer  "vendor_id",   null: false
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "vendors_id",  null: false
   end
 
   add_index "products", ["title"], name: "index_products_on_title", unique: true, using: :btree
-  add_index "products", ["vendors_id"], name: "index_products_on_vendors_id", using: :btree
+  add_index "products", ["vendor_id"], name: "index_products_on_vendor_id", using: :btree
 
   create_table "vendors", force: :cascade do |t|
     t.string   "title"
