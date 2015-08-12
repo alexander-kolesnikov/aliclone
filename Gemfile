@@ -16,8 +16,6 @@ gem 'coffee-rails', '~> 4.1.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
-  gem 'rails-assets-angular'
-  gem 'rails-assets-leaflet'
  end
 
 
