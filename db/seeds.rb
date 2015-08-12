@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
  Product.create(title: "test_product", description: "that is great")
- Picture.create(title: "test product image", file: File.open('/home/bestdev/aliclone/app/assets/images/whip.jpg'), product_id: 1)
+ Picture.create(title: "test product image", file: File.open('/home/user/projects/babaexpress/app/assets/images/wilde.jpg'), product_id: 1)

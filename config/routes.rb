@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  
-resources :products, only: [:index, :show]
+
+  resources :products, only: [:index, :show]
+
+  root 'start_page#index'
+
 
 
 
