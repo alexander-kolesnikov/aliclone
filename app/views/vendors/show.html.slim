@@ -1,9 +1,8 @@
 = image_tag(@vendor.logo.url)
 h1 = @vendor.title
-- @vendor.products[0..2].each do |product|
-  p
-    = link_to(product_path(product.id))
-      = image_tag(product.pictures.first.file.url)
-      product.title
-      br
-      product.description
+- @vendor.products.order('RANDOM()').first(3).each do |product|
+  p.product
+    = link_to(product)
+      div.product_title #{product.title}
+      = image_tag(product.pictures.first.file.url, alt: product.title)
+      div.product_description #{product.description}
