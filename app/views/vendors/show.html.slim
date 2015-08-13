@@ -1,0 +1,9 @@
+= image_tag(@vendor.logo.url)
+h1 = @vendor.title
+- @vendor.products[0..2].each do |product|
+  p
+    = link_to(product_path(product.id))
+      = image_tag(product.pictures.first.file.url)
+      product.title
+      br
+      product.description
