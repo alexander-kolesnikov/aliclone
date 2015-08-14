@@ -1,23 +1,47 @@
 = form_tag(products_path, method: :get)
   = label_tag(:query, "Enter your search query: ")
   = text_field_tag :query, params[:query]
-  br
-  = submit_tag("Find")
+  = submit_tag("Find", class: "btn btn-default")
+
+<div class="container-fluid">
+  <div class="well well-sm">
+    <strong>Category Title</strong>
+      <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-th-list"> </span> List </a> 
+        <a href="#" id="grid" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-th"> </span> Grid </a>
+      </div>
+  </div>
+ 
+  <div id="products" class="row list-group">
+    <div class="item  col-xs-4 col-lg-10">
+      - if @products.any? 
+        - @products.each  do |product|
+            <div class="col-xs-6 col-lg-4">
+              <div class="thumbnail">
+                = image_tag(product.pictures.first.file.url, class: "group list-group-image img-responsive")
+                <div class="caption">
+                  <h4 class="group inner list-group-item-heading">
+                    <p> #{product.title} </p> </h4>
+                  <p class="group inner list-group-item-text">
+                    <p> #{truncate(product.description, length: 50)} </p> </p>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                    = link_to 'View Product', product_path(product.id)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      - else
+        p No items found
+    </div>
+  </div>
+</div>
 
 
-- if @products != [] && params[:query]
-  - for @product in @products
-    = link_to 'Link', product_path(@product.id)
-    <p> #{@product.title} </p>
-    = image_tag(@product.pictures.first.file.url)
-    <p> #{@product.description} </p>
-- elsif !params[:query]
-    p Please, enter a search query
-- else
-    p No items found
 
 /<nav>
-/  = paginate @products 
+/  = paginate @products
 /</nav>
 
 <nav>
