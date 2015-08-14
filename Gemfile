@@ -32,6 +32,9 @@ gem 'carrierwave', '~> 0.10.0'
 #Slim is a template language 
 gem 'slim', '~> 3.0.6'
 
+#kaminary allows for pagination of search results
+gem 'kaminari', '~> 0.16.3'
+
 #Solr-powered search
 gem 'sunspot_rails', group: :development
 gem 'sunspot_solr', group: :development
@@ -57,5 +60,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #Faker allows for rapid test data generation
+  gem 'faker', '~> 1.4.3'
 end
 

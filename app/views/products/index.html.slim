@@ -15,3 +15,25 @@
     p Please, enter a search query
 - else
     p No items found
+
+/<nav>
+/  = paginate @products 
+/</nav>
+
+<nav>
+  <ul class="pagination">
+    <li>
+      = link_to "«", products_path(page: "1", query: params[:query]) 
+      / <span aria-hidden="true">&laquo;</span>
+    </li>
+    - @total_pages.times do |s|
+        <li>
+          = link_to params[:page]= s+1, products_path(page: params[:page]= s+1, query: params[:query])
+        </li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
