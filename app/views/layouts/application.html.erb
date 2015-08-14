@@ -14,8 +14,14 @@
         BabaExpress </p>
       <div id="navbar">
       </div>
+      <div "nav navbar-nav navbar-right">
+      <%= form_tag(products_path, method: :get, class: "navbar-form navbar-right") %>
+        <%= text_field_tag(:query, params[:query], placeholder: 'Search query', class: "form-control") %>
+        <%= submit_tag("Find", class: "btn btn-default") %>
+      </div>
     </div>
   </nav>
+
   <div class="container">
     <%= yield %>
   </div>
