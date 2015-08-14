@@ -2,6 +2,7 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.belongs_to :vendor, null: false, index: true
+      t.belongs_to :category, null: false, index: true
       t.string :title
       t.text :description
 

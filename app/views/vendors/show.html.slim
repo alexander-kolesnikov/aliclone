@@ -1,8 +1,33 @@
-= image_tag(@vendor.logo.url)
-h1 = @vendor.title
-- @vendor.products.order('RANDOM()').first(3).each do |product|
-  p.product
+div.row
+  = image_tag(@vendor.logo.url)
+  = @vendor.title
+
+div[class="well well-sm"]
+  strong Category Title
+  div[class="btn-group"]
+    a.[href="#" id="list" class="btn btn-default btn-sm"]
+      span[class="glyphicon glyphicon-th-list"]
+      List
+    a.[href="#" id="grid" class="btn btn-default btn-sm"]
+      span[class="glyphicon glyphicon-th"]
+      Grid
+
+
+div[id="products" class="row list-group"]
+
+  - @vendor.products.order('RANDOM()').first(16).each do |product|
     = link_to(product)
-      div.product_title #{product.title}
-      = image_tag(product.pictures.first.file.url, alt: product.title)
-      div.product_description #{product.description}
+      div[class="item  col-xs-3 col-lg-3"]
+        div.thumbnail
+          = image_tag(product.pictures.first.file.url, alt: product.title, class: "group list-group-image")
+          div.caption
+            h4[class="group inner list-group-item-heading"]
+              = truncate(product.title, length: 23)
+            p[class="group inner list-group-item-text"]
+              = truncate(product.description, length: 50)
+            div.row
+              div[class="col-xs-12 col-md-6"]
+                p.lead $21.000
+              div[class="col-xs-12 col-md-6"]
+                = link_to(product, class: "btn btn-success")
+                  b Add to cart
