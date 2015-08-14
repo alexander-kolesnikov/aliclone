@@ -22,10 +22,9 @@ div[id="products" class="row list-group"]
           = image_tag(product.pictures.first.file.url, alt: product.title, class: "group list-group-image")
           div.caption
             h4[class="group inner list-group-item-heading"]
-              
-              = product.title.size > 23 ? product.title[0..20]+'...' : product.title
+              = truncate(product.title, length: 23)
             p[class="group inner list-group-item-text"]
-              = product.description.size > 50 ? product.description[0..46]+'...>>>' : product.description
+              = truncate(product.description, length: 50)
             div.row
               div[class="col-xs-12 col-md-6"]
                 p.lead $21.000
