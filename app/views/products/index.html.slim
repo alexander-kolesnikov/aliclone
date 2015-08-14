@@ -4,7 +4,7 @@
   br
   = submit_tag("Find")
 
-== yield
+
 - if @products != [] && params[:query]
   - for @product in @products
     = link_to 'Link', product_path(@product.id)
