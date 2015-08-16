@@ -18,6 +18,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
  end
 
+gem 'devise', '~> 3.5.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
