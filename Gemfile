@@ -18,6 +18,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
  end
 
+gem 'mini_magick', '~> 4.2.10'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
