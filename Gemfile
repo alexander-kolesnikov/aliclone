@@ -19,6 +19,7 @@ source 'https://rails-assets.org' do
  end
 
 gem 'mini_magick', '~> 4.2.10'
+gem 'devise', '~> 3.5.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
