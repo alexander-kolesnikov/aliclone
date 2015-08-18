@@ -36,14 +36,15 @@
 
 #links.col-md-3
   .row
-      = link_to @product.pictures.first.file.url, data: {gallery: ''}
+      = link_to @product.pictures.first.file.url, data: {gallery: ''}, class: "thumbnail"
          = image_tag @product.pictures.first.file.url, class: 'img-responsive'
 
   .row
-    - @product.pictures.each_with_index do |picture, index|
-      - if index > 0
-        = link_to picture.file.url, data: {gallery: ''}
-           = image_tag picture.file.url(:thumb), class: 'img-responsive'
+      - @product.pictures.each_with_index do |picture, index|
+          - if index > 0
+            .col-md-4
+              = link_to picture.file.url, data: {gallery: ''}, class: "thumbnail"
+                 = image_tag picture.file.url(:thumb), class: 'img-responsive'
 
 div[class="col-md-9"]
   h1 =@product.title
