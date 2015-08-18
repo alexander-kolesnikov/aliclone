@@ -11,4 +11,9 @@ class Product < ActiveRecord::Base
     text :title
     text :description
   end
+
+  def get_root_category
+    10
+  end
+  
 end
