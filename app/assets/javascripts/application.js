@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-image-gallery.min.js
 //= require jquery.blueimp-gallery.min
+//= require bootstrap-image-gallery.min
 //= require_tree .
 
 $(document).ready(function() {
