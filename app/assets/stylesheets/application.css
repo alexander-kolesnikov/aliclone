@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require bootstrap
+ *= bootstrap-image-gallery.min.css
+ *= require blueimp-gallery.min
  *= require_tree .
  *= require_self
  */
