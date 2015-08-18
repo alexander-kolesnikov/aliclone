@@ -4,10 +4,12 @@ class ProductsController < ApplicationController
       fulltext  params[:query]
   	  #order_by :title, :desc
   	  #order_by :description, :desc
-      #paginate :page => 2, :per_page => 15
+      paginate :page => params[:page], :per_page => 12
     end.results
+    @total_pages = @products.total_pages
   end
 
   def show
+    @product = Product.find_by(id: params[:id])
   end
 end

@@ -33,7 +33,7 @@ p "20 vendors with random*50 products each"
     product = Product.create!(title: Faker::Commerce.product_name + " " + i.to_s + " " + j.to_s, description: Faker::Hacker.say_something_smart, vendor: vendor, category: Category.find(rand_id))
     p "-->" + product.inspect
     (1+rand(5)).times do |k|
-      picture = Picture.create!(title: Faker::Lorem.sentence + i.to_s + j.to_s + k.to_s, file: open(Faker::Avatar.image), product: product)
+      picture = Picture.create!(title: Faker::Lorem.sentence + i.to_s + j.to_s + k.to_s, file: open(Faker::Avatar.image rand(1000).to_s), product: product)
       p "---->" + picture.inspect
     end
   end
