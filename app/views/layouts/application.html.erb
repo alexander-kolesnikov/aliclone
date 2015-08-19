@@ -31,7 +31,7 @@
     </div>
   </nav>
 
-  <%- if alert %> 
+  <%- if notice %> 
     <div class="notice alert alert-info">
       <%= notice %>
     </div>
@@ -39,6 +39,7 @@
 
   <%- if alert %> 
     <div class="alert alert alert-danger"> 
+      <%= alert %>
     </div>
   <% end %>
 
