@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :pictures
+  has_many :comments, as: :commentable
   belongs_to :vendor
   belongs_to :category
 
