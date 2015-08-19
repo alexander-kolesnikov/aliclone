@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-  	@comment = Comment.new params.require(:comment).permit(:contents)
+    Product.find(params[:product_id]).comments.create(contents: params[:comment][:contents])
   	redirect_to :back
   end
 end
