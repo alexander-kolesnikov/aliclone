@@ -51,3 +51,20 @@ div[class="col-md-9"]
 
   div[class="well"]
     = @product.description
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Panel title</h3>
+    </div>
+    <div class="panel-body">
+      Panel content
+    </div>
+    <div class="panel-footer">Panel footer</div>
+  </div>
+
+  = form_tag comments_add_path, class: "form-group"
+    = label 'comment', 'by_user', "Username"
+    = text_field 'comment', 'by_user', class: "form-control"
+    = label 'comment', 'contents' "Comment"
+    = text_area 'comment', 'contents', class: 'comment', rows: 5, cols: 115, class: "form-control", placeholder: "Please, enter a comment"
+    = submit_tag "Post comment", class: "btn btn-default"

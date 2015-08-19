@@ -17,3 +17,8 @@
  *= require_self
  */
 body { padding-top: 70px; }
+
+#devise_form
+{
+	float: none;
+}
