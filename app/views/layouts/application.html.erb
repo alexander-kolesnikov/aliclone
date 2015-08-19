@@ -7,29 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body >
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header"></div>
+      <div class="navbar-header">
+      </div>
         <a class="navbar-brand" href=<%=root_path%> >
         BabaExpress </a>
-
-      <ul class="nav navbar-nav navbar-right">
-
-        <li> 
+      <div class="collapse navbar-collapse">
+        <div class="nav navbar-form navbar-right">
           <%= link_to("Sign In", new_user_session_path, method: 'get', class: "btn btn-default", id: "sign_in_button") %>
-        </li>
-
-        <li> 
+        </div>
+        <!--ul class="nav navbar-nav"-->
           <%= form_tag(products_path, method: :get, class: "navbar-form navbar-right") do %>
             <%= text_field_tag(:query, params[:query], placeholder: 'Search query', class: "form-control") %>
             <%= submit_tag("Find", class: "btn btn-default") %>
           <% end %> 
-        </li>
-      </ul> 
+        <!--/ul-->
+        
+      </div>
     </div>
   </nav>
+
+  <%- if alert %> 
+    <div class="notice alert alert-info">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <%- if alert %> 
+    <div class="alert alert alert-danger"> 
+    </div>
+  <% end %>
 
   <div class="container">
     <%= yield %>
