@@ -54,17 +54,7 @@ div[class="col-md-9"]
 
   h2 = "Comments"
 
-  - @product.comments.each do |comment|
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">On #{l comment.created_at, format: :short} #{comment.author.email} wrote</h3>
-      </div>
-      <div class="panel-body">
-        =comment.contents
-      </div>
-      <div class="panel-footer">Panel footer</div>
-    </div>
-
+  = render partial: "comments/comments", locals: {comments: @product.comments}
 
 
   = form_tag product_comments_path(@product), class: "form-group"
