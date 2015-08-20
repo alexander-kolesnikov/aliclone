@@ -1,11 +1,21 @@
-- comments.each do |comment|
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">On #{l comment.created_at, format: :short} #{comment.author.email} wrote</h3>
-      </div>
-      <div class="panel-body">
-        =comment.contents
-      </div>
-    </div>
-    - if comment.comments.any?
-      = render partial: "comments/comments", locals: {comments: comment.comments}
+ul[class=style]
+  - comments.each do |comment|
+      li
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">On #{l comment.created_at, format: :short} #{comment.author.email} wrote
+            = button_tag "Reply", class: "btn btn-info btn-sm reply_button", type: "button", id: "comment_#{comment.id.to_s}"
+            </h3>
+          </div>
+          <div class="panel-body">
+            =comment.contents
+          </div>
+        </div>
+
+        div[id="comment_#{comment.id.to_s}"]
+	        = form_tag comment_comments_path(comment), class: "form-group ninja"
+	          = label 'comment', 'contents', "Comment"
+	          = text_area 'comment', 'contents', class: 'comment', rows: 5, cols: 115, class: "form-control", placeholder: "Please, enter a comment"
+	          = submit_tag "Post comment", class: "btn btn-default"
+        - if comment.comments.any?
+          = render partial: "comments/comments", locals: {comments: comment.comments, style: "submenu"}
