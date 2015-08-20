@@ -1,0 +1,10 @@
+ul[class=level]
+  - categories.each do |category|
+    li
+      - if category.categories.count == 0
+        a[href="#"]
+          = category.title
+      - else
+        = render partial: "submenu", locals: {level: "dropdown-submenu", categories: category.categories}
+        a[href="#"]
+          = category.title
