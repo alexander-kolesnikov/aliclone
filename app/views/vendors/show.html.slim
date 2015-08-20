@@ -2,6 +2,7 @@ div.row
   = image_tag(@vendor.logo.url)
   = @vendor.title
 
+
 div[class="well well-sm"]
   strong Category Title
   div[class="btn-group"]
@@ -31,3 +32,13 @@ div[id="products" class="row list-group"]
               div[class="col-xs-12 col-md-6"]
                 = link_to(product, class: "btn btn-success")
                   b Add to cart
+
+div.row
+  div[class="col-md-12"]
+    h3 Comments
+    = render partial: "comments/comments", locals: {comments: @vendor.comments, style: "media-list"}
+
+    = form_tag vendor_comments_path(@vendor), class: "form-group"
+      = label 'comment', 'contents', "Comment"
+      = text_area 'comment', 'contents', class: 'comment', rows: 5, cols: 115, class: "form-control", placeholder: "Please, enter a comment"
+      = submit_tag "Post comment", class: "btn btn-default"
