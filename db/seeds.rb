@@ -54,7 +54,6 @@ end
 # 2000 comments for random comments
 p "2000 comments for random comments"
 2000.times do |c|
-  rand_id=rand(Comment.count)+1
-  @comment = Comment.find(rand_id)
+  @comment = Comment.order('RANDOM()').first
   Comment(author_id: (1+rand(100)), contents: Faker::Lorem.sentences(5), commentable: @comment)
 end
