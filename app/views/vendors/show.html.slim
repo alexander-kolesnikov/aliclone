@@ -1,21 +1,21 @@
-div.row
-  = image_tag(@vendor.logo.url)
-  = @vendor.title
+= cache(@vendor) do 
+  div.row
+    = image_tag(@vendor.logo.url)
+    = @vendor.title
 
 
-div[class="well well-sm"]
-  strong Category Title
-  div[class="btn-group"]
-    a.[href="#" id="list" class="btn btn-default btn-sm"]
-      span[class="glyphicon glyphicon-th-list"]
-      List
-    a.[href="#" id="grid" class="btn btn-default btn-sm"]
-      span[class="glyphicon glyphicon-th"]
-      Grid
+  div[class="well well-sm"]
+    strong Category Title
+    div[class="btn-group"]
+      a.[href="#" id="list" class="btn btn-default btn-sm"]
+        span[class="glyphicon glyphicon-th-list"]
+        List
+      a.[href="#" id="grid" class="btn btn-default btn-sm"]
+        span[class="glyphicon glyphicon-th"]
+        Grid
 
 
 div[id="products" class="row list-group"]
-
   - @vendor.products.order('RANDOM()').first(16).each do |product|
     = link_to(product)
       div[class="item  col-xs-3 col-lg-3"]
