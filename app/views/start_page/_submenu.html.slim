@@ -1,10 +1,11 @@
 ul[class=level]
   - categories.each do |category|
-    li
-      - if category.categories.count == 0
-        a[href="#"]
+    - if category.categories.count == 0
+      li
+        = link_to products_path(category_id: category.id)
           = category.title
-      - else
-        = render partial: "submenu", locals: {level: "dropdown-submenu", categories: category.categories}
-        a[href="#"]
-          = category.title
+    - else
+        li[class="dropdown-submenu"]
+          = link_to products_path(category_id: category.id)
+            = category.title
+          = render partial: "submenu", locals: {level: "dropdown-menu", categories: category.categories}
