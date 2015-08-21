@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
+  
+
   devise_for :users
-  resources :products, only: [:index, :show]
-  resources :vendors, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :comments, only: [:create]
+  end
+  
+  resources :vendors, only: [:index, :show] do
+    resources :comments, only: [:create]
+  end
+
+  resources :comments, only: [] do
+    resources :comments, only: [:create]
+  end
 
   root 'start_page#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
