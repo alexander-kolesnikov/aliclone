@@ -36,9 +36,10 @@ div[id="products" class="row list-group"]
 div.row
   div[class="col-md-12"]
     h3 Comments
-    = render partial: "comments/comments", locals: {comments: @vendor.comments, style: "media-list"}
-
+    
     = form_tag vendor_comments_path(@vendor), class: "form-group"
       = label 'comment', 'contents', "Comment"
       = text_area 'comment', 'contents', class: 'comment', rows: 5, cols: 115, class: "form-control", placeholder: "Please, enter a comment"
       = submit_tag "Post comment", class: "btn btn-default"
+
+    = render partial: "comments/comments", locals: {comments: @vendor.comments, style: "media-list"}
