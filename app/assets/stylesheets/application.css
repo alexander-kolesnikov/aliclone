@@ -22,3 +22,14 @@ body { padding-top: 70px; }
 {
 	float: none;
 }
+
+.ninja 
+{
+    display: none
+}
+
+.reply_button
+{
+	float: right;
+	padding: 1px 7px;
+}
