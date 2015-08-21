@@ -75,3 +75,14 @@ body { padding-top: 70px; }
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
+.ninja 
+{
+    display: none
+}
+
+.reply_button
+{
+	float: right;
+	padding: 1px 7px;
+}
