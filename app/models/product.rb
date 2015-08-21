@@ -11,10 +11,19 @@ class Product < ActiveRecord::Base
   searchable do
     text :title
     text :description
+    integer :categories, multiple: true do
+      cat_arr = []
+      cat = category
+      begin 
+        cat_arr << cat.id
+        cat = cat.category
+      end while cat
+      cat_arr
+    end
   end
 
-  def get_root_category
-    10
+  def showMe
+    @product = Product.first
   end
-  
+
 end
