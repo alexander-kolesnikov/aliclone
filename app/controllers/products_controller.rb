@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def index
   	@products = Product.search do
       fulltext  params[:query]
+      with :categories, params[:category_id] unless params[:category_id].blank?
   	  #order_by :title, :desc
   	  #order_by :description, :desc
       paginate :page => params[:page], :per_page => 12
