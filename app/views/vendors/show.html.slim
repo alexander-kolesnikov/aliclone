@@ -1,27 +1,26 @@
-= cache(@vendor) do 
-  div.row
-    div[class="item  col-xs-2 col-lg-2"]
-      = image_tag(@vendor.logo.url)
-    div[class="item  col-xs-1 col-lg-1"]
-    div[class="item  col-xs-9 col-lg-9"]
-      div.row
-        h3
-          = @vendor.title
-      div.row
-        = @vendor.description
-  div.row
+div.row
+  div[class="item  col-xs-2 col-lg-2"]
     = image_tag(@vendor.logo.url)
-    = @vendor.title
+  div[class="item  col-xs-1 col-lg-1"]
+  div[class="item  col-xs-9 col-lg-9"]
+    div.row
+      h3
+        = @vendor.title
+    div.row
+      = @vendor.description
+    - if @vendor.owner == current_user
+      div.row
+        = link_to("Edit vendor info", edit_vendor_path(@vendor))
 
-  div[class="well well-sm"]
-    strong Category Title
-    div[class="btn-group"]
-      a.[href="#" id="list" class="btn btn-default btn-sm"]
-        span[class="glyphicon glyphicon-th-list"]
-        List
-      a.[href="#" id="grid" class="btn btn-default btn-sm"]
-        span[class="glyphicon glyphicon-th"]
-        Grid
+div[class="well well-sm"]
+  strong Category Title
+  div[class="btn-group"]
+    a.[href="#" id="list" class="btn btn-default btn-sm"]
+      span[class="glyphicon glyphicon-th-list"]
+      List
+    a.[href="#" id="grid" class="btn btn-default btn-sm"]
+      span[class="glyphicon glyphicon-th"]
+      Grid
 
 
 div[id="products" class="row list-group"]
