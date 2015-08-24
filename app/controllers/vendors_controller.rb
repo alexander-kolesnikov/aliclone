@@ -16,10 +16,22 @@ class VendorsController < ApplicationController
   def update
     vendor = Vendor.find(params[:id])
     vendor.update!(title: params[:vendor][:title], description: params[:vendor][:description])
+    if params[:vendor][:logo]
+      vendor.update!(logo: open(params[:vendor][:logo]))
+    end
     redirect_to vendor
   end
 
-  def create
+  def new
+    @vendor = Vendor.new
+  end
 
+
+  def create
+    vendor = Vendor.create(title: params[:vendor][:title], description: params[:vendor][:description], owner: current_user)
+    if params[:vendor][:logo]
+      vendor.update!(logo: open(params[:vendor][:logo]))
+    end
+    redirect_to vendor
   end
 end
