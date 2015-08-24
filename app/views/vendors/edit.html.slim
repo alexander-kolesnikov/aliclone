@@ -1,0 +1,13 @@
+= form_for(@vendor) do |f|
+  div[class="item  col-xs-2 col-lg-2"]
+    = image_tag(@vendor.logo.url)
+    = f.file_field :logo
+  div[class="item  col-xs-1 col-lg-1"]
+  div[class="item  col-xs-9 col-lg-9"]
+    div.row
+      h3
+        = f.text_field :title
+    div.row
+      = f.text_area(:description, rows: 5, class: 'form-control')
+    div.row
+      =f.submit
